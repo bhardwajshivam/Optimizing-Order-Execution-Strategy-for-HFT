@@ -1,0 +1,26 @@
+# Generated the columns: log returns, simple moving average with window size = 7, momentum(window = 7), volatility, direction. 
+
+# Calculate log returns
+df['log_returns'] = calculate_log_returns(df['Close'])
+
+# Calculate simple moving average with a window of 7 days
+df['sma'] = calculate_simple_moving_average(df['Close'], window=7)
+
+# Calculate momentum with a window of 7 days
+df['momentum'] = calculate_momentum(df['Close'], window=7)
+
+# Calculate volatility with a window of 7 days
+df['volatility'] = calculate_volatility(df['Close'], window=7)
+
+# Calculate direction
+df['direction'] = calculate_direction(df['Close'])
+
+# Goal 1: Trying to predict if the closing value next day would be grater than or smaller than the current value.
+  Binary classification problem: -1/+1
+
+  Tried the following models:
+  1. Decision Trees : 67%
+  2. Random Forest : 61%
+  3. Gradient Boosting : 66%
+  4. Logistic Regression : 95%
+  5. SVM : 52%
